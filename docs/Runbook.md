@@ -30,3 +30,6 @@ The installation of Ruby using rbenv must be done manually in the terminal, by r
 ``` bash
 rben install <ruby_version>
 ```
+
+* The `bootstrap2.rb` ruby script will attempt to install:
+  * (Rails)[https://guides.rubyonrails.org/getting_started.html]
