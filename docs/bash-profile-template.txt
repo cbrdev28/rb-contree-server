@@ -1,0 +1,66 @@
+#SSH helpers
+alias sssh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+
+#rails
+export RAILS_ENV="development"
+export RACK_ENV="development"
+
+#rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# Modified by CBR - 11-04-15
+PS1='\n\e[0;32m\t\e[0m [\e[0;34m\w\e[0m]\n\$ '
+
+# Added by CBR - 11-05-15
+alias ls='ls -G'
+alias ll='ls -l'
+
+# Added by CBR - 11-05-15
+if [ -e "/Users/charles/dev/resources/git-completion.bash" ]; then
+	source "/Users/charles/dev/resources/git-completion.bash"
+fi
+
+# This loads nvm
+export NVM_DIR="/Users/charles/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# Run this command if it always asks for your password when using git
+# ssh-add -K
+
+export PATH="/usr/local/opt/gsl@1/bin:$PATH"
+
+# Added by CBR - 11-24-15
+# Reset Android dev
+# Commented out by CBR - 11-01-17 (starting working with ReactNative)
+
+# function setjdk() {
+# 	if [ $# -ne 0 ]; then
+# 		removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
+# 		if [ -n "${JAVA_HOME+x}" ]; then
+# 			removeFromPath $JAVA_HOME
+# 		fi
+# 		export JAVA_HOME=`/usr/libexec/java_home -v $@`
+# 		export PATH=$JAVA_HOME/bin:$PATH
+# 	fi
+# }
+# 
+# function removeFromPath() {
+# 	export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
+# }
+# 
+# setjdk 1.7
+# 
+# # CBR: I deleted the folder `android-sdk-macosx` when setting things up for ReactNative
+# export ANDROID_HOME=/Users/charles/dev/resources/android-sdk-macosx
+# export PATH=$ANDROID_HOME/platform-tools:$PATH
+
+# Added by CBR - 11-02-17 (set up for ReactNative with Android)
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Added by CBR - 11-28-18
+# Trying to run our server locally and I had to reinstall a previous version of mysql 5.7.x instead of 8.x.x
+export PATH=$PATH:/usr/local/opt/mysql@5.7/bin
