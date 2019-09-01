@@ -19,4 +19,14 @@ Inspired from:
 
 * The `bootstrap.sh` script will attemp to install:
   * (homebrew)[https://brew.sh]
+    * (jq)[https://stedolan.github.io/jq/]: a helper to parse json in bash script
   * (rbenv)[https://github.com/rbenv/rbenv#installation]...
+    * Update your `~/.bash_profile` to add:
+``` bash
+eval "$(rbenv init -)"
+```
+
+The installation of Ruby using rbenv must be done manually in the terminal, by running:
+``` bash
+rben install <ruby_version>
+```
