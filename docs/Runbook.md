@@ -37,3 +37,11 @@ rben install <ruby_version>
 
 * The `bootstrap2.rb` ruby script will attempt to install:
   * [Rails](https://guides.rubyonrails.org/getting_started.html)
+
+### Starting with Rails
+
+* `rails new . --api -T`
+* `bundle install`
+* `rails s`
+* Visit: http://localhost:3000/
+
