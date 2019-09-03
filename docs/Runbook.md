@@ -45,3 +45,14 @@ rben install <ruby_version>
 * `rails s`
 * Visit: http://localhost:3000/
 
+### Starting with Google Cloud Platform
+
+* Created project named _Contree Server_
+* Project id: `contree-server`
+* Enabled [billing](https://console.cloud.google.com/project/_/settings?_ga=2.219190108.-471678104.1567293403) on Google Cloud Platform
+* Installing [GC (Google Cloud) SDK](https://cloud.google.com/sdk/docs/)
+* [Deploy steps](https://cloud.google.com/ruby/rails/appengine#deploy-to-app-engine)
+  * `app.yaml` file
+  * `bundle exec rails secret`
+  * `gcloud app create`
+  * `gcloud app deploy`
