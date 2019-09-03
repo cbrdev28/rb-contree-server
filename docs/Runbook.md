@@ -55,4 +55,5 @@ rben install <ruby_version>
   * `app.yaml` file
   * `bundle exec rails secret`
   * `gcloud app create`
+  * Attempt to: `RAILS_ENV=production bundle exec rails server`
   * `gcloud app deploy`
