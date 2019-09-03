@@ -4,4 +4,3 @@ runtime: ruby
 
 env_variables:
   SECRET_KEY_BASE: SECRET
-
