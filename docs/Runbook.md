@@ -60,19 +60,19 @@ rbenv install <ruby_version>
 ### Experimenting with linter, prettier, ...
 
 - VSCode extension: prettier (but does not update ruby files...)
-- Rubocop
+- [Rubocop](https://rubocop.readthedocs.io/en/latest/installation/)
 
   - Add to Gemfile: `gem 'rubocop', '~> 0.74.0', require: false`
   - Run `bundle install`
-  - Add config file: `.rubocop.yml`
+  - Add config file: `.rubocop.yml`, [source](https://rubocop.readthedocs.io/en/latest/configuration/#setting-the-style-guide-url)
 
   ```
   AllCops:
   StyleGuideBaseURL: https://rubystyle.guide
   ```
 
-  - Add: `gem 'rubocop-rails'`
-  - Edit `.rubocop.yml` config file
+  - Add: `gem 'rubocop-rails'`, [source](https://rubygems.org/gems/rubocop-rails_config)
+  - Edit `.rubocop.yml` config file, [source](https://github.com/rubocop-hq/rubocop-rails)
 
   ```
   require: rubocop-rails
@@ -82,3 +82,15 @@ rbenv install <ruby_version>
   ```
 
   - Run: `bundle exec rubocop`
+
+- Rubocop in VSCode: [source](https://github.com/rubyide/vscode-ruby/blob/master/docs/legacy.md)
+  - Install the extension in VSCode (and restart)
+  - Edit `settings.json` (VSCode):
+  ```
+  "[ruby]": {
+        "editor.formatOnSave": true
+    },
+    "ruby.format": "rubocop",
+    "editor.formatOnSaveTimeout": 1500
+  ```
+  - Restart VSCode
