@@ -60,3 +60,25 @@ rbenv install <ruby_version>
 ### Experimenting with linter, prettier, ...
 
 - VSCode extension: prettier (but does not update ruby files...)
+- Rubocop
+
+  - Add to Gemfile: `gem 'rubocop', '~> 0.74.0', require: false`
+  - Run `bundle install`
+  - Add config file: `.rubocop.yml`
+
+  ```
+  AllCops:
+  StyleGuideBaseURL: https://rubystyle.guide
+  ```
+
+  - Add: `gem 'rubocop-rails'`
+  - Edit `.rubocop.yml` config file
+
+  ```
+  require: rubocop-rails
+
+  Rails:
+    StyleGuideBaseURL: https://rails.rubystyle.guide
+  ```
+
+  - Run: `bundle exec rubocop`
