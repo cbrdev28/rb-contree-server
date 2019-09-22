@@ -53,8 +53,9 @@ rbenv install <ruby_version>
 
   - `app.yaml` file
   - `bundle exec rails secret`
+  - `gcloud init`
   - `gcloud app create`
-  - Attempt to: `RAILS_ENV=production bundle exec rails server`
+  - Attempt to: `RAILS_ENV=production bundle exec rails server` (should not be needed)
   - `gcloud app deploy`: not quite successful...
 
 ### Experimenting with linter, prettier, ...
@@ -94,3 +95,26 @@ rbenv install <ruby_version>
     "editor.formatOnSaveTimeout": 1500
   ```
   - Restart VSCode
+
+### My first welcome JSON
+
+- Add `get 'welcome/show'` to `./config/routes.rb`
+- Make `./controllers/welcome_controller.rb`
+  - Implement basic `show` function to set a title
+- Make `./views/welcome/show.json.jbuilder`
+  - Use [jbuilder](https://github.com/rails/jbuilder) to make some json
+- Add `jbuilder` in Gemfile
+- Run the server
+  - `bundle install`
+  - `bundle exec rails s`
+- Test
+  - Browser: `http://localhost:3000/welcome/show.json`
+  - Command line: `curl --request GET localhost:3000/welcome/show.json`
+
+### Removing unused stuff...
+
+- Removed [spring](https://github.com/rails/spring)
+- Remove [active jobs](https://edgeguides.rubyonrails.org/active_job_basics.html)
+- Remove [action mailer](https://guides.rubyonrails.org/action_mailer_basics.html)
+- Remove [action mailbox](https://guides.rubyonrails.org/action_mailbox_basics.html)
+- Remove [action text](https://edgeguides.rubyonrails.org/action_text_overview.html)
