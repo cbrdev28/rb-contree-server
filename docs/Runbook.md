@@ -109,3 +109,11 @@ rbenv install <ruby_version>
 - Test
   - Browser: `http://localhost:3000/welcome/show.json`
   - Command line: `curl --request GET localhost:3000/welcome/show.json`
+
+### Removing unused stuff...
+
+- Removed [spring](https://github.com/rails/spring)
+- Remove [active jobs](https://edgeguides.rubyonrails.org/active_job_basics.html)
+- Remove [action mailer](https://guides.rubyonrails.org/action_mailer_basics.html)
+- Remove [action mailbox](https://guides.rubyonrails.org/action_mailbox_basics.html)
+- Remove [action text](https://edgeguides.rubyonrails.org/action_text_overview.html)
