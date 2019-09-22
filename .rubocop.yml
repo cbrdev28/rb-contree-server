@@ -1,0 +1,7 @@
+AllCops:
+  StyleGuideBaseURL: https://rubystyle.guide
+
+require: rubocop-rails
+
+Rails:
+  StyleGuideBaseURL: https://rails.rubystyle.guide
