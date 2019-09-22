@@ -94,3 +94,18 @@ rbenv install <ruby_version>
     "editor.formatOnSaveTimeout": 1500
   ```
   - Restart VSCode
+
+### My first welcome JSON
+
+- Add `get 'welcome/show'` to `./config/routes.rb`
+- Make `./controllers/welcome_controller.rb`
+  - Implement basic `show` function to set a title
+- Make `./views/welcome/show.json.jbuilder`
+  - Use [jbuilder](https://github.com/rails/jbuilder) to make some json
+- Add `jbuilder` in Gemfile
+- Run the server
+  - `bundle install`
+  - `bundle exec rails s`
+- Test
+  - Browser: `http://localhost:3000/welcome/show.json`
+  - Command line: `curl --request GET localhost:3000/welcome/show.json`
