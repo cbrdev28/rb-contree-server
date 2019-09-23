@@ -19,6 +19,8 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'sorbet-runtime'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS),
 # making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -33,6 +35,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop', '~> 0.74.0', require: false
   gem 'rubocop-rails'
+  gem 'sorbet'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

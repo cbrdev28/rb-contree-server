@@ -139,3 +139,12 @@ rbenv install <ruby_version>
     }
     ```
 ````
+
+### Experimenting [Sorbet](https://sorbet.org/docs/adopting)
+
+It was just a very quick try.
+
+- Sorbet made some changes automatically adding `# typed: ...`
+- Edited `welcome_controller.rb` to experiment a bit
+- I'm not sure if `sorbet-runtime` works properly
+- To run it: `bundle exec srb tc`
