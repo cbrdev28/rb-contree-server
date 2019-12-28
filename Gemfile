@@ -21,6 +21,8 @@ gem 'bootsnap', '~> 1.4.2', require: false
 
 gem 'sorbet-runtime', '~> 0.4.4389'
 
+gem 'graphql', '~> 1.9.17'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS),
 # making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -36,6 +38,7 @@ group :development do
   gem 'rubocop', '~> 0.74.0', require: false
   gem 'rubocop-rails', '~> 2.4.1'
   gem 'sorbet', '~> 0.5.5181'
+  gem 'graphiql-rails', '~> 1.7.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

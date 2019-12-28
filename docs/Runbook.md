@@ -148,3 +148,21 @@ It was just a very quick try.
 - Edited `welcome_controller.rb` to experiment a bit
 - I'm not sure if `sorbet-runtime` works properly
 - To run it: `bundle exec srb tc`
+
+### First step with [GraphQL](https://www.howtographql.com/graphql-ruby/1-getting-started/)
+
+- `bundle exec rails db:create`
+- Add [graphql](https://rubygems.org/gems/graphql) gem in Gemfile
+- `bundle update`
+- `bundle exec rails generate graphql:install`
+- ~Edit Gemfile to set version for [graphiql-rails](https://rubygems.org/gems/graphiql-rails) gem~
+- [graphiql-rails](https://rubygems.org/gems/graphiql-rails) gem is not installed by default for a Rails API, we can add it manually in the `development` group:
+
+```ruby
+group :development do
+  # Other gems ...
+  gem 'graphiql-rails', '~> 1.7.0'
+end
+```
+
+- `bundle update`
