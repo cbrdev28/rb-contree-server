@@ -39,6 +39,8 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', '~> 1.2019.3', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data',
+    '~> 1.2019.3',
+    platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # rubocop:enable Style/SymbolArray
