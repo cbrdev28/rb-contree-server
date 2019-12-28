@@ -5,6 +5,12 @@
 - Xcode & dev tools
 - iTerm2
   - `bash_profile` [template](https://raw.githubusercontent.com/cbrdev28/rb-contree-server/master/docs/bash-profile-template.txt)
+- [Git bash completion](https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion)
+  - `brew install git bash-completion`
+  - Edit `~/.bash_profile`:
+  ```bash
+  [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+  ```
 
 At this point we should be able to checkout the project from this git repository.
 The next steps will be interacting directly with the project.
@@ -118,3 +124,27 @@ rbenv install <ruby_version>
 - Remove [action mailer](https://guides.rubyonrails.org/action_mailer_basics.html)
 - Remove [action mailbox](https://guides.rubyonrails.org/action_mailbox_basics.html)
 - Remove [action text](https://edgeguides.rubyonrails.org/action_text_overview.html)
+
+### Making Rubocop green
+
+- Edited `.rubocop.yml` and fixed every errors
+- Edited `settings.json` from VScode:
+
+````json
+"ruby.useBundler": true,
+    "ruby.lint": {
+        "rubocop": {
+            "useBundler": true
+        }
+    }
+    ```
+````
+
+### Experimenting [Sorbet](https://sorbet.org/docs/adopting)
+
+It was just a very quick try.
+
+- Sorbet made some changes automatically adding `# typed: ...`
+- Edited `welcome_controller.rb` to experiment a bit
+- I'm not sure if `sorbet-runtime` works properly
+- To run it: `bundle exec srb tc`

@@ -1,3 +1,4 @@
+# typed: strict
 # frozen_string_literal: true
 
 # The test environment is used exclusively to run your application's
@@ -6,7 +7,8 @@
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
+  # Settings specified here will take precedence over those
+  # in config/application.rb.
 
   config.cache_classes = false
 

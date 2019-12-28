@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# rubocop:disable Style/SymbolArray
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -13,21 +17,30 @@ gem 'puma', '~> 3.11'
 gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', '~> 1.4.2', require: false
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+gem 'sorbet-runtime', '~> 0.4.4389'
+
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS),
+# making cross-origin AJAX possible
 # gem 'rack-cors'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Call 'byebug' anywhere in the code to stop execution
+  # and get a debugger console
+  gem 'byebug', '~> 11.0.1', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'listen', '~> 3.2.1'
   gem 'rubocop', '~> 0.74.0', require: false
-  gem 'rubocop-rails'
+  gem 'rubocop-rails', '~> 2.4.1'
+  gem 'sorbet', '~> 0.5.5181'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data',
+    '~> 1.2019.3',
+    platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# rubocop:enable Style/SymbolArray

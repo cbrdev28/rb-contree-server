@@ -1,4 +1,16 @@
 AllCops:
+  Include:
+    - "**/*.rb"
+    - "**/*.jbuilder"
+    - "**/*.ruby"
+    - "**/*.ru"
+    - "**/*.spec"
+    - "**/Gemfile"
+    - "**/Rakefile"
+  Exclude:
+    - "node_modules/**/*"
+    - ".git/**/*"
+    - "bin/**"
   StyleGuideBaseURL: https://rubystyle.guide
 
 require: rubocop-rails
