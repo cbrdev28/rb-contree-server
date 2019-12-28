@@ -151,6 +151,8 @@ It was just a very quick try.
 
 ### First step with [GraphQL](https://www.howtographql.com/graphql-ruby/1-getting-started/)
 
+#### Install
+
 - `bundle exec rails db:create`
 - Add [graphql](https://rubygems.org/gems/graphql) gem in Gemfile
 - `bundle update`
@@ -165,4 +167,45 @@ group :development do
 end
 ```
 
+- graphiql will still not work properly, the following steps should fix it:
+  - In `application.rb`, add: `require 'sprockets/railtie'`
+  - Create the directory: `app/assets/config/`, and add the file: `manifest.js`
+  - Add the following content to `manifest.js`:
+
+```javascript
+//= link graphiql/rails/application.css
+//= link graphiql/rails/application.js
+```
+
 - `bundle update`
+
+#### User model
+
+- `bundle exec rails generate model User name email password_digest`
+- `bundle exec rails db:migrate`
+- Update `app/models/user.rb`:
+
+```ruby
+class User < ApplicationRecord
+  has_secure_password
+
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true
+end
+```
+
+- To support `has_secure_password`, edit Gemfile to add [brcypt](https://rubygems.org/gems/bcrypt)
+- `bundle update`
+
+_From there I'll just summarize the steps, the details are pretty much similar to this [tutorial](https://www.howtographql.com/graphql-ruby/4-authentication/)_
+
+- Create GraphQL user type: `app/graphql/types/user_type.rb`
+- Create authentication mutation
+  - Create input type for authentication, i.e. what users need to provide to sign up (email, password): `app/graphql/types/sign_up_input.rb`
+  - Create mutation for creating user: `app/graphql/mutations/create_user.rb`
+  - Add mutation to mutations lists: `app/graphql/types/mutation_type.rb`
+- Test with graphiql
+
+_At this point, I encountered an error with GraphQL and decided to step back and start over_
+
+#### Clean up database

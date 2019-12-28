@@ -23,6 +23,8 @@ gem 'sorbet-runtime', '~> 0.4.4389'
 
 gem 'graphql', '~> 1.9.17'
 
+gem 'bcrypt', '~> 3.1.13'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS),
 # making cross-origin AJAX possible
 # gem 'rack-cors'
