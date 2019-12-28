@@ -209,3 +209,19 @@ _From there I'll just summarize the steps, the details are pretty much similar t
 _At this point, I encountered an error with GraphQL and decided to step back and start over_
 
 #### Clean up database
+
+The goal is to get back to the point right after installing GraphQL and graphiql
+
+- Delete all the files for the user model:
+  - `create_user.rb`
+  - `sign_up_input.rb`
+  - `user_type.rb`
+  - `user.rb`
+- `bundle exec rake db:reset`
+- `git clean -dfx`
+- `bundle update`
+- Steps from starting with GraphQL:
+  - `bundle exec rails db:create`
+  - `bundle exec rails generate graphql:install`
+  - `bundle update`
+  - Test graphiql locally: `localhost:3000/graphiql`
