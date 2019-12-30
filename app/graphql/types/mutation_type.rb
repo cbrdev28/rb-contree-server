@@ -12,5 +12,8 @@ module Types
     def test_field
       'Hello World'
     end
+
+    # Our first mutation to experiment with Tutorial
+    field :create_tutorial, mutation: Mutations::CreateTutorial
   end
 end
