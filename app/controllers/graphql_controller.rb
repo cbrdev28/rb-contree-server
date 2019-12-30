@@ -7,8 +7,6 @@ class GraphqlController < ApplicationController
   # but you'll have to authenticate your user separately
   # protect_from_forgery with: :null_session
 
-  # rubocop:disable Metrics/MethodLength
-
   def execute
     variables = ensure_hash(params[:variables])
     query = params[:query]
@@ -65,6 +63,4 @@ class GraphqlController < ApplicationController
       status: :internal_server_error
     )
   end
-
-  # rubocop:enable Metrics/MethodLength
 end

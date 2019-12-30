@@ -17,3 +17,6 @@ require: rubocop-rails
 
 Rails:
   StyleGuideBaseURL: https://rails.rubystyle.guide
+
+Metrics/MethodLength:
+  Enabled: false

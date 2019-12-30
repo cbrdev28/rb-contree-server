@@ -4,7 +4,6 @@
 
 # This just a script to check/install dependencies
 # No need to restrict the lenght of this method from rubocop
-# rubocop:disable Metrics/MethodLength
 
 def main
   puts 'Ruby bootstrap...'
@@ -27,8 +26,6 @@ def main
   system('gem install rails')
   system('rails --version')
 end
-
-# rubocop:enable Metrics/MethodLength
 
 if $PROGRAM_NAME == __FILE__
   main
