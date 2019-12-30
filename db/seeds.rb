@@ -10,3 +10,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Terminator' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+_ = Tutorial.create(title: 'First Tuto', description: 'GraphQL')

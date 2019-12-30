@@ -21,6 +21,10 @@ gem 'bootsnap', '~> 1.4.2', require: false
 
 gem 'sorbet-runtime', '~> 0.4.4389'
 
+gem 'graphql', '~> 1.9.17'
+
+gem 'bcrypt', '~> 3.1.13'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS),
 # making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -32,6 +36,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'graphiql-rails', '~> 1.7.0'
   gem 'listen', '~> 3.2.1'
   gem 'rubocop', '~> 0.74.0', require: false
   gem 'rubocop-rails', '~> 2.4.1'
