@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
-require 'sorbet-runtime'
-
 # My first class to show some json
 class WelcomeController < ApplicationController
   def initialize
-    @title = T.let('Welcome typed controller', String)
+    @title = 'Welcome controller'
   end
 
   def show
