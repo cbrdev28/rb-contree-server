@@ -1,5 +1,4 @@
 #!/usr/bin/ruby
-# typed: true
 # frozen_string_literal: true
 
 # This just a script to check/install dependencies

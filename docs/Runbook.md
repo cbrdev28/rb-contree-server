@@ -220,10 +220,13 @@ The goal is to get back to the point right after installing GraphQL and graphiql
 - `bundle exec rake db:reset`
 - `git clean -dfx`
 - `bundle update`
-- Steps from starting with GraphQL:
-  - `bundle exec rails db:create`
-  - `bundle exec rails generate graphql:install`
-  - `bundle update`
-  - Test graphiql locally: `localhost:3000/graphiql`
+
+#### Steps from starting with GraphQL:
+
+- `bundle exec rails db:create`
+- `bundle exec rails generate graphql:install`
+- `bundle update`
+- Test graphiql locally: `localhost:3000/graphiql`
 
 _From there I'm making a simple `Tutorial` object in the database and adding some query and mutation for it_
+_And I removed [sorbet](https://sorbet.org)_
