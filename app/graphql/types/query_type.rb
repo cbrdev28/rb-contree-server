@@ -17,5 +17,19 @@ module Types
     def all_users
       User.all
     end
+
+    # Fetch all lobbies
+    field :all_lobbies, [Types::LobbyType], null: false
+
+    def all_lobbies
+      Lobby.all
+    end
+
+    # Fetch the first (and only one) lobby
+    field :lobby, Types::LobbyType, null: true
+
+    def lobby
+      Lobby.first
+    end
   end
 end

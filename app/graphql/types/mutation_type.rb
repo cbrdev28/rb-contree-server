@@ -18,5 +18,8 @@ module Types
 
     # Our mutation to create users for parite!
     field :create_user, mutation: Mutations::CreateUser
+
+    # Mutation to make user join the lobby
+    field :join_lobby, mutation: Mutations::JoinLobby
   end
 end

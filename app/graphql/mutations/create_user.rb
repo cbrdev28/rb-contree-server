@@ -11,8 +11,8 @@ module Mutations
       user = User.new(
         name: name
       )
-      user.save!
 
+      user.save!
       {
         user: user
       }
