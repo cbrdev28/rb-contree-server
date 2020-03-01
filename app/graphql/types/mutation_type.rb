@@ -15,5 +15,8 @@ module Types
 
     # Our first mutation to experiment with Tutorial
     field :create_tutorial, mutation: Mutations::CreateTutorial
+
+    # Our firt mutation to create users for parite!
+    field :create_user, mutation: Mutations::CreateUser
   end
 end

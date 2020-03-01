@@ -10,5 +10,12 @@ module Types
     def all_tutorials
       Tutorial.all
     end
+
+    # To query all users for parite (experiment)
+    field :all_users, [Types::UserType], null: false
+
+    def all_users
+      User.all
+    end
   end
 end
