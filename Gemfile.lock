@@ -177,7 +177,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.2.1)
   puma (~> 3.11)
-  rack-cors
+  rack-cors (~> 1.1.1)
   rails (~> 6.0.0)
   rubocop (~> 0.74.0)
   rubocop-rails (~> 2.4.1)
