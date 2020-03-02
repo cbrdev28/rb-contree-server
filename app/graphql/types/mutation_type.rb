@@ -27,5 +27,8 @@ module Types
 
     # Users to join a game of parite
     field :join_parite_game, mutation: Mutations::JoinPariteGame
+
+    # Draw a card for player
+    field :player_draw, mutation: Mutations::PlayerDraw
   end
 end

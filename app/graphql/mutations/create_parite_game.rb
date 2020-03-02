@@ -15,10 +15,37 @@ module Mutations
         lobby: lobby
       )
 
+      all_cards = gen_deck
+      all_cards.each do |a_card|
+        card = Card.new(
+          face_up: false,
+          color: a_card[:color],
+          value: a_card[:value],
+          parite_game: parite_game
+        )
+        card.save!
+      end
+
       parite_game.save!
       {
         parite_game: parite_game
       }
+    end
+
+    def gen_deck
+      cards = [{ color: 'joker', value: 0 }]
+      colors = %w[heart diamond clubs spades]
+      colors.each do |color|
+        (1..13).each do |x|
+          cards.push(
+            color: color,
+            value: x
+          )
+        end
+      end
+
+      # Shuffle cards
+      cards.shuffle
     end
   end
 end

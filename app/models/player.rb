@@ -6,4 +6,5 @@ class Player < ApplicationRecord
 
   belongs_to :user
   belongs_to :parite_game
+  has_many :cards, dependent: :nullify
 end

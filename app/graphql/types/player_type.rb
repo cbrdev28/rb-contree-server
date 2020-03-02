@@ -8,5 +8,6 @@ module Types
 
     field :user, Types::UserType, null: false
     field :parite_game, Types::PariteGameType, null: false
+    field :cards, [Types::CardType], null: true
   end
 end

@@ -8,5 +8,6 @@ module Types
 
     field :lobby, Types::LobbyType, null: false
     field :players, [Types::PlayerType], null: true
+    field :cards, [Types::CardType], null: true
   end
 end

@@ -6,4 +6,5 @@ class PariteGame < ApplicationRecord
 
   belongs_to :lobby
   has_many :players, dependent: :destroy
+  has_many :cards, dependent: :destroy
 end
