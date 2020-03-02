@@ -24,5 +24,8 @@ module Types
 
     # Create game for parite
     field :create_parite_game, mutation: Mutations::CreatePariteGame
+
+    # Users to join a game of parite
+    field :join_parite_game, mutation: Mutations::JoinPariteGame
   end
 end

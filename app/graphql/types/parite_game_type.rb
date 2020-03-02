@@ -7,5 +7,6 @@ module Types
     field :title, String, null: false
 
     field :lobby, Types::LobbyType, null: false
+    field :players, [Types::PlayerType], null: true
   end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Mutations
-  # Our first mutation to make users
+  # Our first mutation to create games of parite
   class CreatePariteGame < BaseMutation
     argument :title, String, required: true
     argument :lobby_id, ID, required: false
@@ -10,7 +10,6 @@ module Mutations
 
     def resolve(title:, lobby_id: nil)
       lobby = lobby_id && Lobby.find(lobby_id) || Lobby.first
-      # lobby ||= Lobby.first
       parite_game = PariteGame.new(
         title: title,
         lobby: lobby
