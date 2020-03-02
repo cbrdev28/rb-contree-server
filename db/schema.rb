@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_232309) do
+ActiveRecord::Schema.define(version: 2020_03_02_003042) do
 
   create_table "lobbies", force: :cascade do |t|
     t.string "title"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2020_03_01_232309) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["lobby_id"], name: "index_parite_games_on_lobby_id"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.boolean "ready"
+    t.integer "user_id", null: false
+    t.integer "parite_game_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["parite_game_id"], name: "index_players_on_parite_game_id"
+    t.index ["user_id"], name: "index_players_on_user_id"
   end
 
   create_table "tutorials", force: :cascade do |t|
@@ -42,5 +52,7 @@ ActiveRecord::Schema.define(version: 2020_03_01_232309) do
   end
 
   add_foreign_key "parite_games", "lobbies"
+  add_foreign_key "players", "parite_games"
+  add_foreign_key "players", "users"
   add_foreign_key "users", "lobbies"
 end

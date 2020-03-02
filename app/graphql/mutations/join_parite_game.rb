@@ -11,11 +11,15 @@ module Mutations
     def resolve(user_id:, parite_game_id:)
       user = User.find(user_id)
       parite_game = PariteGame.find(parite_game_id)
-      player = Player.find_or_initialize_by(
+      player = Player.find_by(
         user: user,
         parite_game: parite_game
       )
-      player.ready = false
+      player ||= Player.new(
+        user: user,
+        parite_game: parite_game,
+        ready: false
+      )
 
       player.save!
       user.save!

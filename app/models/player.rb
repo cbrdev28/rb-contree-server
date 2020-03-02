@@ -2,7 +2,7 @@
 
 # Rails class for player model
 class Player < ApplicationRecord
-  validates :ready, presence: true
+  validates :ready, default: false
 
   belongs_to :user
   belongs_to :parite_game
