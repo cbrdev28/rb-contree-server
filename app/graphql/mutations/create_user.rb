@@ -8,10 +8,17 @@ module Mutations
     field :user, Types::UserType, null: false
 
     def resolve(name:)
-      user = User.new(
-        name: name
+      lobby = Lobby.first
+      lobby ||= Lobby.new(
+        title: 'Greg & Bazoo Lobby'
       )
 
+      user = User.new(
+        name: name,
+        lobby: lobby
+      )
+
+      lobby.save!
       user.save!
       {
         user: user
