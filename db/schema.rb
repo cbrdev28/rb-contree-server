@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_214714) do
+ActiveRecord::Schema.define(version: 2020_03_01_232309) do
 
   create_table "lobbies", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "parite_games", force: :cascade do |t|
+    t.string "title"
+    t.integer "lobby_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lobby_id"], name: "index_parite_games_on_lobby_id"
   end
 
   create_table "tutorials", force: :cascade do |t|
@@ -33,5 +41,6 @@ ActiveRecord::Schema.define(version: 2020_03_01_214714) do
     t.index ["lobby_id"], name: "index_users_on_lobby_id"
   end
 
+  add_foreign_key "parite_games", "lobbies"
   add_foreign_key "users", "lobbies"
 end

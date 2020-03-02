@@ -21,5 +21,8 @@ module Types
 
     # Mutation to make user join the lobby
     field :join_lobby, mutation: Mutations::JoinLobby
+
+    # Create game for parite
+    field :create_parite_game, mutation: Mutations::CreatePariteGame
   end
 end

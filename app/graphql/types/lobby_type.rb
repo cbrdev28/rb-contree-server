@@ -7,5 +7,6 @@ module Types
     field :title, String, null: false
 
     field :users, [Types::UserType], null: true
+    field :parite_games, [Types::PariteGameType], null: true
   end
 end
