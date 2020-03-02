@@ -5,14 +5,12 @@ module Mutations
   class PlayerDraw < BaseMutation
     argument :player_id, ID, required: true
     argument :parite_game_id, ID, required: true
-    argument :card_id, ID, required: true
 
     field :parite_game, Types::PariteGameType, null: false
 
-    def resolve(player_id:, parite_game_id:, card_id:)
+    def resolve(player_id:, parite_game_id:)
       parite_game = PariteGame.find(parite_game_id)
       card = Card.find_by(
-        id: card_id,
         parite_game: parite_game
       )
       player = Player.find(player_id)
