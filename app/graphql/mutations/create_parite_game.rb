@@ -33,8 +33,8 @@ module Mutations
     end
 
     def gen_deck
-      cards = [{ color: 'joker', value: 0 }]
-      colors = %w[heart diamond clubs spades]
+      cards = []
+      colors = %w[hearts diamonds clubs spades]
       colors.each do |color|
         (1..13).each do |x|
           cards.push(
