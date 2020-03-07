@@ -31,5 +31,15 @@ module Types
     def lobby
       Lobby.first
     end
+
+    # Fetch a parite game by id
+    field :parite_game, Types::PariteGameType, null: true do
+      description 'Find a parite game by id'
+      argument :parite_game_id, ID, required: true
+    end
+
+    def parite_game(parite_game_id:)
+      PariteGame.find(parite_game_id)
+    end
   end
 end

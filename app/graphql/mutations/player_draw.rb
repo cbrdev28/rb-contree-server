@@ -15,6 +15,7 @@ module Mutations
       )
       player = Player.find(player_id)
       card.update(
+        face_up: true,
         parite_game: nil,
         player: player
       )
