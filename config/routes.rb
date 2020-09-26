@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   post '/graphql', to: 'graphql#execute'
 
   get 'welcome/show'
+
+  mount ActionCable.server, at: '/cable'
 end
