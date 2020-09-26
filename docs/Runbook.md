@@ -230,3 +230,11 @@ The goal is to get back to the point right after installing GraphQL and graphiql
 
 _From there I'm making a simple `Tutorial` object in the database and adding some query and mutation for it_
 _And I removed [sorbet](https://sorbet.org)_
+
+## Get back on track!
+
+This project has been on hold for a while and this chapter is me getting back on track.
+
+When Greg was around we implemented a proof of concept to play parite by using a version of this server, here is the pull request: https://github.com/cbrdev28/rb-contree-server/pull/16
+
+The next goal is to support a proper implementation for authentication and queries which required valid credentials.
