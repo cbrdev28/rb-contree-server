@@ -15,5 +15,20 @@ module Types
 
     # Our first mutation to experiment with Tutorial
     field :create_tutorial, mutation: Mutations::CreateTutorial
+
+    # Our mutation to create users for parite!
+    field :create_user, mutation: Mutations::CreateUser
+
+    # Mutation to make user join the lobby
+    field :join_lobby, mutation: Mutations::JoinLobby
+
+    # Create game for parite
+    field :create_parite_game, mutation: Mutations::CreatePariteGame
+
+    # Users to join a game of parite
+    field :join_parite_game, mutation: Mutations::JoinPariteGame
+
+    # Draw a card for player
+    field :player_draw, mutation: Mutations::PlayerDraw
   end
 end
