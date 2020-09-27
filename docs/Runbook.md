@@ -277,3 +277,8 @@ Everything seems to work fine: the Rails welcome page, my first welcome JSON (ht
 - Verified with `bundle exec rails s`
 
 _For other minor dependencies, I simply had to update the Gemfile and run `bundle install` & verify with `bundle exec rails s`._
+
+- The rubocop upgrade required a few changes that were explained while running the commands:
+  - `bundle install` required to run `bundle update rubocop`
+  - I had to edit the `.rubocop.yml` file with `NewCops: enable`
+  - And had to make `bundle exec rubocop` green again
