@@ -21,7 +21,7 @@ gem 'bootsnap', '~> 1.4.8', require: false
 
 gem 'graphql', '~> 1.11.4'
 
-gem 'bcrypt', '~> 3.1.13'
+gem 'bcrypt', '~> 3.1.16'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS),
 # making cross-origin AJAX possible
