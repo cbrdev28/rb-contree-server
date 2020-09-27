@@ -178,7 +178,7 @@ DEPENDENCIES
   rails (~> 6.0.3.3)
   rubocop (~> 0.74.0)
   rubocop-rails (~> 2.4.1)
-  sqlite3 (~> 1.4)
+  sqlite3 (~> 1.4.2)
   tzinfo-data (~> 1.2019.3)
 
 RUBY VERSION

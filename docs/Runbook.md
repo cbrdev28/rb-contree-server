@@ -275,3 +275,5 @@ Everything seems to work fine: the Rails welcome page, my first welcome JSON (ht
 - Updated version in Gemfile but `bundle install` failed
 - Tried: `bundle update` & `bundle install` again
 - Verified with `bundle exec rails s`
+
+_For other minor dependencies, I simply had to update the Gemfile and run `bundle install` & verify with `bundle exec rails s`._
