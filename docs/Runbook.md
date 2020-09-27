@@ -228,5 +228,33 @@ The goal is to get back to the point right after installing GraphQL and graphiql
 - `bundle update`
 - Test graphiql locally: `localhost:3000/graphiql`
 
-_From there I'm making a simple `Tutorial` object in the database and adding some query and mutation for it_
+_From there I'm making a simple `Tutorial` object in the database and adding some query and mutation for it._
+
 _And I removed [sorbet](https://sorbet.org)_
+
+## Get back on track!
+
+This project has been on hold for a while and this chapter is me getting back on track.
+
+When Greg was around we implemented a proof of concept to play parite by using a version of this server, here is the pull request: https://github.com/cbrdev28/rb-contree-server/pull/16
+
+The next goal is to support a proper implementation for authentication and queries which required valid credentials.
+
+One particular command I wanted to save somewhere, to run the server locally: `bundle exec rails s -b 0.0.0.0`
+
+### Updates & dependencies
+
+My first task will be to make sure everything is up to date, from my system to every tool being used in this project:
+
+- System Mac OS (which apparently is going to take a couple of hours...), Xcode, etc...
+  - It took pretty much a day to update everything System & App Store
+  - Don't forget to run Xcode after the update so it installs additional tools
+- I also ran the following commands:
+  - `brew update`
+  - `brew cleanup`
+  - `brew doctor`
+- Now back at the project level:
+  - `bundle install`
+  - `bundle exec rails s`
+
+Everything seems to work fine: the Rails welcome page, my first welcome JSON (http://localhost:3000/welcome/show.json), and graphiql (http://localhost:3000/graphiql).
