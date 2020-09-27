@@ -269,3 +269,9 @@ Everything seems to work fine: the Rails welcome page, my first welcome JSON (ht
   - Install ruby 2.7.1 with rbenv: `rbenv install 2.7.1`
   - Verified with: `rbenv versions`
 - Run `bundle install` & verified with `bundle exec rails s`
+
+#### Bump Rails from 6.0.0 to 6.0.3.3
+
+- Updated version in Gemfile but `bundle install` failed
+- Tried: `bundle update` & `bundle install` again
+- Verified with `bundle exec rails s`
