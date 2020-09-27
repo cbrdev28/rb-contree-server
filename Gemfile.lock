@@ -61,7 +61,7 @@ GEM
     bootsnap (1.4.8)
       msgpack (~> 1.0)
     builder (3.2.4)
-    byebug (11.0.1)
+    byebug (11.1.3)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
     erubi (1.9.0)
@@ -170,7 +170,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.16)
   bootsnap (~> 1.4.8)
-  byebug (~> 11.0.1)
+  byebug (~> 11.1.3)
   graphiql-rails (~> 1.7.0)
   graphql (~> 1.11.4)
   jbuilder (~> 2.10.1)
