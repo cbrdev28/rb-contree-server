@@ -42,7 +42,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data',
-    '~> 1.2019.3',
+    '~> 1.2020.1',
     platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # rubocop:enable Style/SymbolArray
