@@ -17,7 +17,7 @@ gem 'puma', '~> 5.0.0'
 gem 'jbuilder', '~> 2.10.1'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '~> 1.4.2', require: false
+gem 'bootsnap', '~> 1.4.8', require: false
 
 gem 'graphql', '~> 1.9.17'
 
