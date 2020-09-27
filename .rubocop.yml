@@ -12,6 +12,7 @@ AllCops:
     - ".git/**/*"
     - "bin/**"
   StyleGuideBaseURL: https://rubystyle.guide
+  NewCops: enable
 
 require: rubocop-rails
 

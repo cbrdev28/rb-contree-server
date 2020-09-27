@@ -258,3 +258,27 @@ My first task will be to make sure everything is up to date, from my system to e
   - `bundle exec rails s`
 
 Everything seems to work fine: the Rails welcome page, my first welcome JSON (http://localhost:3000/welcome/show.json), and graphiql (http://localhost:3000/graphiql).
+
+#### Update to Ruby v2.7.1 (was v2.6.4)
+
+- Change ruby version in `.ruby-version` for rbenv
+- Change ruby version in Gemfile
+- Install ruby v2.7.1 with rbenv:
+  - It was not available in the list of all versions so I tried: `brew update && brew upgrade ruby-build`
+  - And followed by: `brew doctor/cleanup`
+  - Install ruby 2.7.1 with rbenv: `rbenv install 2.7.1`
+  - Verified with: `rbenv versions`
+- Run `bundle install` & verified with `bundle exec rails s`
+
+#### Bump Rails from 6.0.0 to 6.0.3.3
+
+- Updated version in Gemfile but `bundle install` failed
+- Tried: `bundle update` & `bundle install` again
+- Verified with `bundle exec rails s`
+
+_For other minor dependencies, I simply had to update the Gemfile and run `bundle install` & verify with `bundle exec rails s`._
+
+- The rubocop upgrade required a few changes that were explained while running the commands:
+  - `bundle install` required to run `bundle update rubocop`
+  - I had to edit the `.rubocop.yml` file with `NewCops: enable`
+  - And had to make `bundle exec rubocop` green again

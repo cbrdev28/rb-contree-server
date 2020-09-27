@@ -3,6 +3,7 @@
 # My first class to show some json
 class WelcomeController < ApplicationController
   def initialize
+    super
     @title = 'Welcome controller'
   end
 
