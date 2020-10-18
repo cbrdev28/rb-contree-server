@@ -6,15 +6,17 @@ module Mutations
     argument :name, String, required: true
     argument :credentials, Types::CredentialsInput, required: true
 
-    field :user, Types::UserType
+    field :user, Types::UserType, null: false
 
     def resolve(name:, credentials:)
-      context[:session][:user_name] = name
-      User.create!(
+      user = User.create!(
         name: name,
         email: credentials&.[](:email),
         password: credentials&.[](:password)
       )
+      {
+        user: user
+      }
     end
   end
 end

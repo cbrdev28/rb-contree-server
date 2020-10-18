@@ -11,7 +11,7 @@ class GraphqlController < ApplicationController
     variables = ensure_hash(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]
-    context = graphql_context(session)
+    context = graphql_context
 
     result = RbContreeServerSchema.execute(
       query,
@@ -29,15 +29,12 @@ class GraphqlController < ApplicationController
   private
 
   # Returns the context for our GraphQL queries
-  # We pass the Rails session, a sort of hash provided by Rails,
-  # where I would like to store the authentication token for the
-  # current user. This will be done by the sign in mutation.
-  # We also pass a way to retrieve the current user, which lets
+  # WIP: We pass a way to retrieve the current user, which lets
   # other queries check if the query is from a logged-in user.
-  def graphql_context(session)
-    Rails.logger.info "params: #{session}"
+  def graphql_context
+    # Rails.logger.info "graphql_context: #{an_object_to_print}"
     {
-      session: session
+      current_user: nil
     }
   end
 
