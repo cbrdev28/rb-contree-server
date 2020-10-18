@@ -282,3 +282,15 @@ _For other minor dependencies, I simply had to update the Gemfile and run `bundl
   - `bundle install` required to run `bundle update rubocop`
   - I had to edit the `.rubocop.yml` file with `NewCops: enable`
   - And had to make `bundle exec rubocop` green again
+
+### First User Auth attempt
+
+For now I don't really want to describe every step in details, but here is the idea.
+I got inspired from 2 tutorials:
+
+- Inspiration to implement user model with GraphQl and some authentication logic:
+  - https://www.howtographql.com/graphql-ruby/4-authentication/
+  - I decided to use `bcrypt` too, for password verification
+- Inspiration to make my own class for a `AuthTokenSessionManager`:
+  - https://www.programmableweb.com/news/how-to-implement-graphql-api-rails/how-to/2017/12/09
+  - Basically I will "abstract" the implementation by making my own class, and will decide later what to use for a more secure token management
