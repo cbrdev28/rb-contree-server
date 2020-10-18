@@ -8,6 +8,7 @@ AllCops:
     - "**/Gemfile"
     - "**/Rakefile"
   Exclude:
+    - "db/**/*"
     - "node_modules/**/*"
     - ".git/**/*"
     - "bin/**"
