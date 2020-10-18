@@ -5,3 +5,6 @@ require_relative 'application'
 
 # Initialize the Rails application.
 Rails.application.initialize!
+
+# Setup logger
+Rails.logger = Logger.new($stdout)
