@@ -15,5 +15,8 @@ module Types
 
     # Our first mutation to experiment with Tutorial
     field :create_tutorial, mutation: Mutations::CreateTutorial
+
+    # Our mutation to create user with name, email & password (bcrypt)
+    field :create_user, mutation: Mutations::CreateUser
   end
 end

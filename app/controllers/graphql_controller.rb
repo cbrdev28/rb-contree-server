@@ -35,7 +35,7 @@ class GraphqlController < ApplicationController
   # We also pass a way to retrieve the current user, which lets
   # other queries check if the query is from a logged-in user.
   def graphql_context(session)
-    # Rails.logger.info "params: #{session}"
+    Rails.logger.info "params: #{session}"
     {
       session: session
     }
