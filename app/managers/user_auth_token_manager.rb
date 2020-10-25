@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # The user auth token manager is meant to:
 # - return the current user for a given token
 # - register user and return the associated auth token
