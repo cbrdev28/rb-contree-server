@@ -322,4 +322,25 @@ I need to make a list of things I learnt, by experimenting with my first user mo
 The next idea is to look into using headers:
 
 - Client apps would pass the user auth token in the header for each request
+  - I made a helper which takes the `request` from Rails and parse the header to find our custom `'Contree-Auth-Token'` one
+  - This helper also builds the `context` for our GraphQl schema by passing the `current_user`
 - The server would use this to verify the current user is authenticated
+  - We can access the `current_user` from the GraphQl context which actually calls our `UserAuthTokenManager` class
+  - This manager class is our very fist implementation to keep user session in memory, which is not great and not safe!
+  - Later on, we could refactor this class to use a safer method (Devise, JsonWebToken, ...)
+
+Note: defining queries with Resolvers (class based API):
+
+- https://graphql-ruby.org/fields/resolvers.html
+- Part 1: https://www.endpoint.com/blog/2019/02/28/converting-graphql-ruby-resolvers-to-the-class-based-api
+- Part 2: https://www.endpoint.com/blog/2019/03/29/eliminating-resolvers-in-graphql-ruby
+
+I need to commit some changes and check on Rubocop status. Next steps will be:
+
+- Create the sign in mutation
+  - Authenticate users by verifying their password using `bcrypt`
+  - Create their auth token and store their session with our `UserAuthTokenManager`
+  - Returns the user object and the `auth_token`
+- Provide a way to get the current user, with a query only for users who are signed-in, to test our `current_user` strategy
+  - This query takes no parameters and will rely on the `auth_token` provided in the headers to fetch and return the current user
+  - This is basically a way for our client app to retrieve the current user session based on the `auth_token`

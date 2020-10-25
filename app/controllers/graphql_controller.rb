@@ -11,8 +11,7 @@ class GraphqlController < ApplicationController
     variables = ensure_hash(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]
-    context = GraphqlControllerHelper.graphql_context
-    # auth_token = GraphqlControllerHelper.auth_token_from_header(request)
+    context = GraphqlControllerHelper.graphql_context(request)
 
     result = RbContreeServerSchema.execute(
       query,

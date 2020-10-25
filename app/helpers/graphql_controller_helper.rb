@@ -1,6 +1,7 @@
 module GraphqlControllerHelper
-  def self.graphql_context
-    { current_user: nil }
+  def self.graphql_context(request)
+    auth_token = auth_token_from_header(request)
+    { current_user: UserAuthTokenManager.current_user(auth_token) }
   end
 
   def self.auth_token_from_header(request)
