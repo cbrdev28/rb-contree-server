@@ -11,7 +11,6 @@ module GraphqlControllerHelper
   end
 
   def self.auth_token_from_header(request)
-    # The first? constant I am hard coding
-    request.headers['Contree-Auth-Token']
+    request.headers[Constants::HEADER_CONTREE_AUTH_TOKEN]
   end
 end

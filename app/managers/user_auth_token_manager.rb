@@ -35,6 +35,8 @@ class UserAuthTokenManager
     auth_token
   end
 
+  # Private helpers
+
   def self.gen_auth_token(user)
     "#{random_string}:#{user.id}"
   end
@@ -48,7 +50,7 @@ class UserAuthTokenManager
     # prevent it by invalidating the user session and raising and exception
     unless @@user_session_table[auth_token].nil?
       invalidate_user_session(user: user, auth_token: auth_token)
-      raise 'Error: auth token already existing'
+      raise Constants::ERROR_DUPLICATE_AUTH_TOKEN
     end
 
     # If the same user is trying to register multiple times, prevent it
