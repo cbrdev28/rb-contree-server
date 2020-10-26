@@ -4,6 +4,13 @@
 # - return the current user for a given token
 # - register user and return the associated auth token
 class UserAuthTokenManager
+  # Class variable are discouraged by Rubocop rules, instead we could
+  # use the Singleton pattern (supported by Ruby)
+  # As a temporary solution for our session manager, I disabled
+  # the Rubocop rules for these 2 class variables below
+
+  # rubocop:disable Style/ClassVars
+
   # A class variable to store a hash of: { auth_token => user_id }
   # This is basically storing the user session
   @@user_session_table = {}
@@ -12,6 +19,8 @@ class UserAuthTokenManager
   # The reverse table of `user_session_table`
   # This is to keep track of users who already registered
   @@registered_user_table = {}
+
+  # rubocop:enable Style/ClassVars
 
   # Returns the user associated with the given auth token
   def self.current_user(auth_token)
