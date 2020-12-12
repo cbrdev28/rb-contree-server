@@ -363,3 +363,20 @@ Note: fixing Rubocop: Rails/UniqueValidationWithoutIndex
   - `bundle exec run db:reset`
   - `bundle exec run db:migrate`
 - Test with GraphiQL & the Rails console
+
+#### More steps for user authentication and sessions
+
+There are a few more things I need to implement:
+
+- The session recovery query
+  - It will check if there is an user available for a given token
+  - It will return the user object and the token
+- The sign in mutation
+  - It will verify user credentials and create their session with a token
+  - It will return the user object created and the token
+- The log out mutation
+  - Can only be called if user is logged in (has current session)
+  - It will remove/invalidate the current user session
+- The current user query
+  - Can only be called if user is logged in (has current session)
+  - It takes a `user_id` as a parameter and return the current user object and the token

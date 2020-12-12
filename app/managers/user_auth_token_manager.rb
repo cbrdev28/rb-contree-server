@@ -54,7 +54,7 @@ class UserAuthTokenManager
     end
 
     # If the same user is trying to register multiple times, prevent it
-    # It's too risk to allow multiple auth token per user, basically
+    # It's too risky to allow multiple auth token per user, basically
     # we only allow one session per user
     # Check if we find a token for the given user and remove it from
     # the registered table, and from the session table

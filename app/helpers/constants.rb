@@ -11,4 +11,11 @@ module Constants
   # The name of our custom header to retrieve the current user
   # authentication token
   HEADER_CONTREE_AUTH_TOKEN = 'Contree-Auth-Token'
+
+  # The error when the sign in mutation fails:
+  # - No credentials passed
+  # - No user found by email
+  # - Bad credentials
+  # - Not able to generate a token
+  ERROR_SIGN_IN = 'Error: sign in failed'
 end

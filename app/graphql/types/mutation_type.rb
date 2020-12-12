@@ -18,5 +18,8 @@ module Types
 
     # Our mutation to create user with name, email & password (bcrypt)
     field :create_user, mutation: Mutations::CreateUser
+
+    # Mutation to sign in user
+    field :sign_in_user, mutation: Mutations::SignInUser
   end
 end
