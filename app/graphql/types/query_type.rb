@@ -15,5 +15,17 @@ module Types
     def all_tutorials
       Tutorial.all
     end
+
+    # Query to recover user session from the auth token
+    # It takes the token as input parameter
+    # If success, it returns the user object and token
+    field :recover_session, Types::RecoverSessionResponseType, null: true do
+      description 'Fetch user session from auth token'
+      argument :auth_token, String, required: true
+    end
+
+    def recover_session(auth_token:)
+      QueryManagers::Authentication.recover_session(graphql_context: context, auth_token: auth_token)
+    end
   end
 end
