@@ -25,7 +25,14 @@ module Types
     end
 
     def recover_session(auth_token:)
-      QueryManagers::Authentication.recover_session(auth_token: auth_token)
+      QueryManagers::Authentication.recover_session(auth_token)
+    end
+
+    # Query to fetch the current user object (must be logged in)
+    field :current_user, Types::UserType, null: true
+
+    def current_user
+      QueryManagers::Authentication.current_user(context)
     end
   end
 end
