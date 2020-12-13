@@ -6,11 +6,16 @@ module QueryManagers
     # Query resolver for recover session
     def self.recover_session(auth_token)
       user = UserAuthTokenManager.current_user(auth_token)
-      raise Constants::ERROR_RECOVER_SESSION unless user
+      if user
+        return {
+          user: user,
+          token: auth_token
+        }
+      end
 
       {
-        user: user,
-        token: auth_token
+        user: nil,
+        token: nil
       }
     end
 

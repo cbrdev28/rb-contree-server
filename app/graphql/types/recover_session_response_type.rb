@@ -3,7 +3,7 @@
 module Types
   # The GraphQL class for the recover query response
   class RecoverSessionResponseType < Types::BaseObject
-    field :user, Types::UserType, null: false
-    field :token, String, null: false
+    field :user, Types::UserType, null: true
+    field :token, String, null: true
   end
 end

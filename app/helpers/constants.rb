@@ -19,9 +19,6 @@ module Constants
   # - Not able to generate a token
   ERROR_SIGN_IN = 'Error: sign in failed'
 
-  # The error when no recover session is available for a given token
-  ERROR_RECOVER_SESSION = 'Error: no recover session available'
-
   # The error when no current user can be found
   ERROR_NOT_LOGGED_IN = 'Error: you must be logged in'
 end
