@@ -35,6 +35,12 @@ class UserAuthTokenManager
     auth_token
   end
 
+  # Logout user will remove their entries in the tables
+  def self.logout(user)
+    user_token = @@registered_user_table[user.id]
+    invalidate_user_session(user: user, auth_token: user_token)
+  end
+
   # Private helpers
 
   def self.gen_auth_token(user)

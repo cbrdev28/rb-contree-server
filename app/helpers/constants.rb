@@ -21,4 +21,7 @@ module Constants
 
   # The error when no recover session is available for a given token
   ERROR_RECOVER_SESSION = 'Error: no recover session available'
+
+  # The error when no current user can be found during logout
+  ERROR_LOGOUT = 'Error: you must be logged in'
 end

@@ -21,5 +21,8 @@ module Types
 
     # Mutation to sign in user
     field :sign_in_user, mutation: Mutations::SignInUser
+
+    # Mutation to logout user
+    field :logout_user, mutation: Mutations::LogoutUser
   end
 end

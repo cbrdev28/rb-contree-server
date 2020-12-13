@@ -25,7 +25,7 @@ module Types
     end
 
     def recover_session(auth_token:)
-      QueryManagers::Authentication.recover_session(graphql_context: context, auth_token: auth_token)
+      QueryManagers::Authentication.recover_session(auth_token: auth_token)
     end
   end
 end
