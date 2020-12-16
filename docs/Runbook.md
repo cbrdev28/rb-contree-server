@@ -360,8 +360,8 @@ Note: fixing Rubocop: Rails/UniqueValidationWithoutIndex
   - from: `validates :email, presence: true, uniqueness: true`
   - to: `validates :email, presence: true`
 - Reset the database and run migrations
-  - `bundle exec run db:reset`
-  - `bundle exec run db:migrate`
+  - `bundle exec rails db:reset`
+  - `bundle exec rails db:migrate`
 - Test with GraphiQL & the Rails console
 
 #### More steps for user authentication and sessions
