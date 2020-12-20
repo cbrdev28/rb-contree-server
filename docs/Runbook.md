@@ -294,3 +294,89 @@ I got inspired from 2 tutorials:
 - Inspiration to make my own class for a `AuthTokenSessionManager`:
   - https://www.programmableweb.com/news/how-to-implement-graphql-api-rails/how-to/2017/12/09
   - Basically I will "abstract" the implementation by making my own class, and will decide later what to use for a more secure token management
+
+I need to make a list of things I learnt, by experimenting with my first user model:
+
+- About the `bcrypt` gem and what it provides:
+  - The `has_secure_password` that we add to our `user.rb` model class
+    - Requires the user model to have a field `password_digest`, where it will store an encrypted version of the `password`
+    - Optionally, we could use `password_confirmation`: https://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html
+  - It provides a method `authenticate`, which takes the string password as a parameter to verify user authentication
+- About Rack Cors
+  - It's a gem which is required if we want our API to be called from "the outside"
+  - I still need to add it in my Gemfile
+  - It requires some configuration, one way is to add this block of code directly in the `config/application.rb`:
+  ```
+  config.middleware.insert_before 0, Rack::Cors do
+    allow do
+      origins '*'
+      resource '*', headers: :any, methods: [:get, :post, :options]
+    end
+  end
+  ```
+  - This is not secure and not clean, this tutorial video shows a different way for the config: https://youtu.be/z18zLCAg7UU
+- About the usage of session in Rails
+  - By default it is disabled for Rails API! I need to figure out how to set it up
+  - UPDATE: I was not able to find a proper way to setup and use sessions with Rails API
+
+The next idea is to look into using headers:
+
+- Client apps would pass the user auth token in the header for each request
+  - I made a helper which takes the `request` from Rails and parse the header to find our custom `'Contree-Auth-Token'` one
+  - This helper also builds the `context` for our GraphQl schema by passing the `current_user`
+  - Here is the `curl` command I used to test it:
+    - `curl --header "Contree-Auth-Token: token-contree-2" localhost:3000/graphql --request POST`
+- The server would use this to verify the current user is authenticated
+  - We can access the `current_user` from the GraphQl context which actually calls our `UserAuthTokenManager` class
+  - This manager class is our very fist implementation to keep user session in memory, which is not great and not safe!
+  - Later on, we could refactor this class to use a safer method (Devise, JsonWebToken, ...)
+
+Note: defining queries with Resolvers (class based API):
+
+- https://graphql-ruby.org/fields/resolvers.html
+- Part 1: https://www.endpoint.com/blog/2019/02/28/converting-graphql-ruby-resolvers-to-the-class-based-api
+- Part 2: https://www.endpoint.com/blog/2019/03/29/eliminating-resolvers-in-graphql-ruby
+
+I need to commit some changes and check on Rubocop status. Next steps will be:
+
+- Create the sign in mutation
+  - Authenticate users by verifying their password using `bcrypt`
+  - Create their auth token and store their session with our `UserAuthTokenManager`
+  - Returns the user object and the `auth_token`
+- Provide a way to get the current user, with a query only for users who are signed-in, to test our `current_user` strategy
+  - This query takes no parameters and will rely on the `auth_token` provided in the headers to fetch and return the current user
+  - This is basically a way for our client app to retrieve the current user session based on the `auth_token`
+
+Note: fixing Rubocop: Rails/UniqueValidationWithoutIndex
+
+- I thought I could manually edit/change the migration file which creates the user table, inspired from:
+  - https://medium.com/@igorkhomenko/rails-make-sure-you-have-proper-db-indexes-for-your-models-unique-validations-ffd0364df26f
+  - https://stackoverflow.com/questions/23187037/rails-whats-difference-in-unique-index-and-validates-uniqueness-of
+  - https://thoughtbot.com/blog/the-perils-of-uniqueness-validations
+- But instead I need to make a new migration of my own, using:
+  - `bundle exec rails generate migration AddEmailIndexToUsers`
+  - And make sure it adds: `add_index :users, :email, unique: true`
+- And I updated the `user.rb` file:
+  - from: `validates :email, presence: true, uniqueness: true`
+  - to: `validates :email, presence: true`
+- Reset the database and run migrations
+  - `bundle exec rails db:reset`
+  - `bundle exec rails db:migrate`
+- Test with GraphiQL & the Rails console
+
+#### More steps for user authentication and sessions
+
+There are a few more things I need to implement:
+
+- The session recovery query
+  - It will check if there is an user available for a given token
+  - It will return the user object and the token
+- The sign in mutation
+  - It will verify user credentials and create their session with a token
+  - It will return the user object created and the token
+- The log out mutation
+  - Can only be called if user is logged in (has current session)
+  - It will remove/invalidate the current user session
+- The current user query
+  - Can only be called if user is logged in (has current session)
+  - It takes a `user_id` as a parameter and return the current user object and the token
