@@ -17,7 +17,7 @@ module Subscriptions
     end
 
     def update(test_id: nil)
-      Rails.logger.warn 'TestMessages Subscription: update'
+      Rails.logger.warn "TestMessages Subscription: update #{test_id}"
       # Return some debug value
       {
         messages: ['One value from update']
