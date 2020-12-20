@@ -380,3 +380,11 @@ There are a few more things I need to implement:
 - The current user query
   - Can only be called if user is logged in (has current session)
   - It takes a `user_id` as a parameter and return the current user object and the token
+
+## A new chapter: GraphQL subscription
+
+Basically a way to push data synchronously to clients, using GraphQL:
+
+- https://graphql-ruby.org/subscriptions/subscription_type.html
+- https://graphql-ruby.org/subscriptions/subscription_classes
+- https://graphql-ruby.org/api-doc/1.11.6/GraphQL/Subscriptions/ActionCableSubscriptions
