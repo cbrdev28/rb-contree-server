@@ -130,15 +130,14 @@ rbenv install <ruby_version>
 - Edited `.rubocop.yml` and fixed every errors
 - Edited `settings.json` from VScode:
 
-````json
+```json
 "ruby.useBundler": true,
     "ruby.lint": {
         "rubocop": {
             "useBundler": true
         }
     }
-    ```
-````
+```
 
 ### Experimenting [Sorbet](https://sorbet.org/docs/adopting)
 
