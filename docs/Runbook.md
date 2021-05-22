@@ -217,7 +217,7 @@ The goal is to get back to the point right after installing GraphQL and graphiql
   - `sign_up_input.rb`
   - `user_type.rb`
   - `user.rb`
-- `bundle exec rake db:reset`
+- `bundle exec rails db:reset`
 - `git clean -dfx`
 - `bundle update`
 
