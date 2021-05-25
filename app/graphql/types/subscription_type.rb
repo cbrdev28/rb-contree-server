@@ -3,6 +3,7 @@
 # Example from:
 # https://graphql-ruby.org/subscriptions/subscription_type.html
 
+# This example snippet can be deleted
 # class Types::SubscriptionType < GraphQL::Schema::Object
 # end
 

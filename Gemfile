@@ -27,6 +27,8 @@ gem 'bcrypt', '~> 3.1.16'
 # making cross-origin AJAX possible
 # gem 'rack-cors'
 
+gem 'redis', '~> 3.3.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution
   # and get a debugger console

@@ -4,6 +4,7 @@
 class GraphqlChannel < ApplicationCable::Chanel
   # Implementation taken (adapted) from:
   # https://graphql-ruby.org/api-doc/1.11.6/GraphQL/Subscriptions/ActionCableSubscriptions.html
+  # Documentation from a higher version may improve this code a little
   def subscribed
     @subscription_ids = []
   end
