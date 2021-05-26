@@ -387,3 +387,40 @@ Basically a way to push data synchronously to clients, using GraphQL:
 - https://graphql-ruby.org/subscriptions/subscription_type.html
 - https://graphql-ruby.org/subscriptions/subscription_classes
 - https://graphql-ruby.org/api-doc/1.11.6/GraphQL/Subscriptions/ActionCableSubscriptions
+
+### First investigation
+
+What I've learnt so far,
+I can't really find a good documentation which explains how to use ActionCable with GraphQL on a Rails API.
+Here are a few links/tutorials that I'll be exploring in addition to the docs mentioned above:
+
+- Official ActionCable doc: https://guides.rubyonrails.org/action_cable_overview.html
+- Rails and ActionCable: https://blog.heroku.com/real_time_rails_implementing_websockets_in_rails_5_with_action_cable
+- GraphQL subscriptions with Rails API and React: https://haughtcodeworks.com/blog/software-development/graphql-rails-react-standalone/
+- The last part of a tutorial that I may need to read entirely: https://evilmartians.com/chronicles/graphql-on-rails-3-on-the-way-to-perfection
+
+The plan at this point:
+
+- Add subscriptions in our GraphQL schema
+  - Create a class type for it (like mutations)
+  - Create a `subscription_type.rb` to list/declare our subscriptions (same than `mutation_type.rb`)
+  - Declare subscriptions in the GraphQL schema: `rb_contree_server_schema.rb`
+- Add ActionCable for GraphQL subscriptions
+  - The main class is defined in `app/channels/application_cable/connection.rb`. I may need to add/redefine the `connect` function, this is where they usually check for current user.
+  - Add a channel for GraphQL subscriptions: `app/channels/graphql_channel.rb`
+  - Update `rb_contree_server_schema.rb` to support ActionCable with: `use GraphQL::Subscriptions::ActionCableSubscriptions`
+  - Edit `routes.rb` to add ActionCable support
+  - Edit `cable.yml` where I needed to add a dependency to redis (also edit `rb_contree_server_schema.rb` to specify redis)
+
+From there, I was trying to test the subscription by using GraphiQL but I encounter a `KeyError`. I still don't know why:
+
+- Do I have an error in my basic setup for GraphQL subscription? I know a lot of that is work in progress
+- Do I need to finish implementing the ActionCable support? I doubt, since I would need to tell GraphiQL to also use that.
+
+I will have to figure out whether it's possible to make subscription work with GraphiQL, given my setup.
+My other idea is to implement a proof of concept on the client/app side.
+
+### Side-track: update Rails to 6.0.3.6
+
+I ran into an unexpected error because of a dependency internal to Rails: https://weblog.rubyonrails.org/2021/3/26/marcel-upgrade-releases/
+Basically I bumped the version of Rails in our Gemfile. I didn't have the chance to test this with the client app running. I would like to start having the server running on another machine (my work laptop), while I work on the app on another laptop.
