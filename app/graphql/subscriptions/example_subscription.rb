@@ -3,11 +3,12 @@
 module Subscriptions
   # Our example class for subscriptions
   class ExampleSubscription < Subscriptions::BaseSubscription
-    # Implementation commented out for now, to keep things simple first
+    # Most of implementation commented out for now, to keep things simple first
 
     # argument :example_arg, ID, required: true
 
-    # field :example_response, String, null: true
+    # We must define a field type (return value)
+    field :example_response, String, null: true
 
     # def subscribe(example_arg: nil)
     #   Rails.logger.warn "ExampleSubscription: subscribe #{example_arg}"
