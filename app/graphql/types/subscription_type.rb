@@ -13,6 +13,7 @@ module Types
   class SubscriptionType < Types::BaseObject
     # Declare subscriptions here, like we do with mutations
 
-    field :test_messages, subscription: Subscriptions::TestMessages
+    # Example of declaring a subscription with its own class, like mutations
+    field :example_subscription, subscription: Subscriptions::ExampleSubscription
   end
 end
