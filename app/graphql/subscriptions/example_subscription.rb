@@ -7,22 +7,22 @@ module Subscriptions
 
     # argument :example_arg, ID, required: true
 
-    # We must define a field type (return value)
+    # We must define a field type (return value), required to build schema
     field :example_response, String, null: true
 
     # def subscribe(example_arg: nil)
-    #   Rails.logger.warn "ExampleSubscription: subscribe #{example_arg}"
+    #   Rails.logger.debug "ExampleSubscription: subscribe #{example_arg}"
     #   # Return initial value
     #   {
-    #     messages: 'Initial value'
+    #     example_response: 'Initial value'
     #   }
     # end
 
     # def update(example_arg: nil)
-    #   Rails.logger.warn "ExampleSubscription: update #{example_arg}"
+    #   Rails.logger.debug "ExampleSubscription: update #{example_arg}"
     #   # Return some debug value
     #   {
-    #     messages: 'Debug value'
+    #     example_response: 'Debug value'
     #   }
     # end
   end
