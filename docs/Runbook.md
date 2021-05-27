@@ -425,3 +425,7 @@ My other idea is to implement a proof of concept on the client/app side.
 I ran into an unexpected error because of a dependency internal to Rails: https://weblog.rubyonrails.org/2021/3/26/marcel-upgrade-releases/
 Basically I bumped the version of Rails in our Gemfile. I didn't have the chance to test this with the client app running.
 I would like to start having the server running on another machine (my work laptop), while I work on the app on another laptop (which is how I discovered that problem).
+
+### Back on track: simplify my first subscription
+
+Since I'm still investigating how to implement GraphQL subscriptions on Rails with ActionCable, I'm going to start with something simpler, and keep the code I had as an example.

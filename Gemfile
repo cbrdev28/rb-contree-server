@@ -27,6 +27,7 @@ gem 'bcrypt', '~> 3.1.16'
 # making cross-origin AJAX possible
 # gem 'rack-cors'
 
+# This is used in `cable.yml` for production settings
 gem 'redis', '~> 3.3.1'
 
 group :development, :test do
