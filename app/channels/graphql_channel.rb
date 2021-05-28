@@ -6,18 +6,19 @@ class GraphqlChannel < ApplicationCable::Chanel
   # https://graphql-ruby.org/api-doc/1.11.6/GraphQL/Subscriptions/ActionCableSubscriptions.html
   # Documentation from a higher version may improve this code a little
   def subscribed
+    Rails.logger.debug 'GraphqlChannel: subscribed'
     @subscription_ids = []
   end
 
   def execute(data)
+    Rails.logger.debug 'GraphqlChannel: execute'
+
     query = data['query']
     variables = ensure_hash(data['variables'])
     operation_name = data['operationName']
     context = {
-      # Re-implement whatever context methods you need
-      # in this channel or ApplicationCable::Channel
+      # TODO: get current user from the parent Connection class and pass to context
       # current_user: current_user,
-      # Make sure the channel is in the context
       channel: self
     }
 
@@ -43,6 +44,7 @@ class GraphqlChannel < ApplicationCable::Chanel
   end
 
   def unsubscribed
+    Rails.logger.debug 'GraphqlChannel: unsubscribed'
     @subscription_ids.each do |sid|
       RbContreeServerSchema.subscriptions.delete_subscription(sid)
     end

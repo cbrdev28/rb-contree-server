@@ -15,6 +15,8 @@ module Mutations
         description: description
       )
       if tutorial.save
+        # Test our subscription here
+        RbContreeServerSchema.subscriptions.trigger('exampleSubscription', {}, "Triggered valued: title: #{title}")
         {
           tutorial: tutorial,
           errors: []
