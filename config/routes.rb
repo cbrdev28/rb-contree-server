@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get 'welcome/show'
 
   # Add route/mount for ActionCable
-  mount ActionCable.server => '/subscriptions'
+  mount ActionCable.server, at: '/cable_subscriptions'
 end
