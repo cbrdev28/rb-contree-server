@@ -1,3 +1,5 @@
+# I may need to update this file and also try not to use redis (for production below)
+# But it seems like redis is one of the best option
 development:
   adapter: async
 

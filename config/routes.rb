@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   post '/graphql', to: 'graphql#execute'
 
   get 'welcome/show'
+
+  # Add route/mount for ActionCable
+  mount ActionCable.server, at: '/cable_subscriptions'
 end

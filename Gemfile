@@ -8,7 +8,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.3.3'
+gem 'rails', '~> 6.0.3.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4.2'
 # Use Puma as the app server
@@ -26,6 +26,9 @@ gem 'bcrypt', '~> 3.1.16'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS),
 # making cross-origin AJAX possible
 # gem 'rack-cors'
+
+# This is used in `cable.yml` for production settings
+gem 'redis', '~> 3.3.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution
